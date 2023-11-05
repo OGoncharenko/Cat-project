@@ -1,0 +1,27 @@
+.cats-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cat-tile {
+    width: 300px;
+    height: fit-content;
+    position: relative;
+    /* display: grid;
+    grid-template-rows: 1fr auto;
+    position: relative; */
+}
+
+.cat-image {
+    max-width: 100%; /* Ensure images fit within their container */
+    height: auto; /* Maintain aspect ratio */
+    /* grid-row: 1; */
+  }
+
+.heart {
+    position: absolute;
+    top: 10;
+    right: 0;
+    cursor: pointer; 
+}
