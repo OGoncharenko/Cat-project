@@ -35,3 +35,13 @@ h1 {
     align-self: end;
     justify-self: end;
 }
+
+.nav-link {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.cat-icon {
+    width: 32px;
+}

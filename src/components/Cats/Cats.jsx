@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import './cats.css'
 import emptyHeart from '/empty-heart.png'
 import fullHeart from '/full-heart.png'
+import { Link } from 'react-router-dom';
 
 
 function Cats() {
@@ -69,11 +70,11 @@ function Cats() {
     const vote = findVoteByImageId(id);
     if (!!vote) {
       event.target.src = emptyHeart;
-      await deleteVote(vote.id);
       const updatedUserVotes = userVotes.filter((v) => {
         return v.id !== vote.id;
       })
       setUserVotes(updatedUserVotes);
+      await deleteVote(vote.id);
     } else {
       event.target.src = fullHeart;
       const newVote = await upvoteImage(id);
@@ -96,6 +97,9 @@ function Cats() {
   return (
     <>
       <h1>Please enjoy the adorable cat pictures!</h1>
+      <Link className='nav-link' to='/votes' title="See my liked cats">
+        <img className='heart' src={fullHeart}/>
+      </Link>
       <div className='cats-container'>
         {
           catsImages.map(({id, url}) =>{
@@ -108,7 +112,6 @@ function Cats() {
             })
         }
       </div>
-      
     </>
   )
 }
