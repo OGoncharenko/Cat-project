@@ -1,27 +1,37 @@
+h1 {
+    text-align: center;
+}
+
 .cats-container {
     display: grid;
+    margin: 0 auto;
     gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
+    max-width: 960px;
+    justify-content: center;
 }
 
 .cat-tile {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
     width: 300px;
     height: fit-content;
-    position: relative;
-    /* display: grid;
-    grid-template-rows: 1fr auto;
-    position: relative; */
+    gap: 8px;
+    padding: 1rem;
+    border: 1px solid grey;
+    border-radius: 16px;
+    background-color: blanchedalmond;
 }
 
 .cat-image {
-    max-width: 100%; /* Ensure images fit within their container */
-    height: auto; /* Maintain aspect ratio */
-    /* grid-row: 1; */
-  }
+    max-width: 100%;
+    height: auto;
+}
 
 .heart {
-    position: absolute;
-    top: 10;
-    right: 0;
-    cursor: pointer; 
+    cursor: pointer;
+    align-self: end;
+    justify-self: end;
 }

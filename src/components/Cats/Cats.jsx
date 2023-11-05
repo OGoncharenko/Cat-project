@@ -70,9 +70,14 @@ function Cats() {
     if (!!vote) {
       event.target.src = emptyHeart;
       await deleteVote(vote.id);
+      const updatedUserVotes = userVotes.filter((v) => {
+        return v.id !== vote.id;
+      })
+      setUserVotes(updatedUserVotes);
     } else {
       event.target.src = fullHeart;
-      await upvoteImage(id);
+      const newVote = await upvoteImage(id);
+      setUserVotes([...userVotes, newVote]);
     }
   }
 
@@ -90,7 +95,7 @@ function Cats() {
 
   return (
     <>
-      <div>Cats</div>
+      <h1>Please enjoy the adorable cat pictures!</h1>
       <div className='cats-container'>
         {
           catsImages.map(({id, url}) =>{
